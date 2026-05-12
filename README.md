@@ -2,13 +2,13 @@
 
 StayOnTrail is a forest-themed productivity and task management Android app designed to help users stay focused, organize tasks, and build consistent habits through visual motivation.
 
-The app combines a to-do list, calendar, focus timer, streak tracking, and AI-assisted task planning into one simple productivity system. As users complete tasks and maintain consistency, their productivity progress is represented through a growing forest.
+The app combines a to-do list, calendar-based planning, focus timer, streak tracking, local task storage, and basic AI-assisted task planning into one productivity system. As users complete tasks and maintain consistency, their productivity progress is represented through a growing forest.
 
 ## Overview
 
 Many task management apps focus only on listing tasks, but they often fail to make productivity feel rewarding or emotionally engaging. StayOnTrail solves this by turning productivity into a visual journey.
 
-Users can create and organize tasks, view their schedule, start focus sessions, and track their progress through a forest-based streak system. The app encourages consistency by making each completed task feel like progress toward growing and maintaining a forest.
+Users can create and organize tasks, view their schedule, start focus sessions, and track their progress through a forest-based streak system. The app also stores task data locally using SQLite, allowing tasks and streak information to persist between app sessions.
 
 ## Key Features
 
@@ -18,10 +18,12 @@ Users can create and organize tasks, view their schedule, start focus sessions, 
 - Calendar view for scheduled tasks
 - Focus timer with tree growth animation
 - Forest-based streak visualization
+- Local task storage using SQLite
 - Task categories and filters
 - Priority-based task organization
 - Repeating task support
-- AI-assisted task planning using the DeepSeek API
+- Task prerequisites / dependencies
+- Basic AI-assisted task planning using the DeepSeek API
 - Clean and simple Android interface
 
 ## App Concept
@@ -38,7 +40,7 @@ The home screen shows the user’s tasks for the day. It provides a focused view
 
 ### Task View
 
-The task view allows users to create, edit, organize, and manage their tasks. Tasks can be categorized, prioritized, and filtered based on the user’s needs.
+The task view allows users to create, edit, organize, and manage their tasks. Tasks can be categorized, prioritized, repeated, and linked with prerequisites depending on the user’s needs.
 
 ### Calendar View
 
@@ -54,7 +56,7 @@ The forest view displays the user’s productivity streak. It acts as a motivati
 
 ### AI Task Planning
 
-StayOnTrail includes an AI-powered feature that helps users generate or refine tasks using the DeepSeek API. This helps users break down goals, plan work, and organize tasks more effectively.
+StayOnTrail includes a basic AI-assisted task planning feature using the DeepSeek API. This feature helps users generate or refine task ideas, making it easier to break down goals into manageable steps.
 
 ## Tech Stack
 
@@ -63,6 +65,8 @@ StayOnTrail includes an AI-powered feature that helps users generate or refine t
 | Platform | Android |
 | Language | Java |
 | IDE | Android Studio |
+| Local Database | SQLite |
+| Database Helper | SQLiteOpenHelper |
 | AI Integration | DeepSeek API |
 | Networking | HttpURLConnection |
 | Concurrency | ExecutorService |
@@ -71,35 +75,52 @@ StayOnTrail includes an AI-powered feature that helps users generate or refine t
 
 ## Technical Implementation
 
-### Background Processing
+### Local Task Storage
 
-Network requests and long-running operations are handled on background threads using `ExecutorService`. This prevents the app from freezing while API calls or other background tasks are running.
+StayOnTrail uses a local SQLite database to store task and streak information directly on the Android device. This allows the app to preserve user data even after the app is closed.
 
-### UI Thread Updates
+The database is managed using a custom `SqlHelper` class that extends `SQLiteOpenHelper`.
 
-Since Android does not allow direct UI updates from background threads, `Handler` and `Looper` are used to safely update the interface after background tasks finish.
+The local database stores:
 
-### AI API Integration
+- Task title
+- Task description
+- Scheduled date
+- Task duration
+- Repeat type
+- Task group / category
+- Priority level
+- Task prerequisites
+- Streak days
+- Number of completed streak tasks
+- Last completed task timestamp
 
-The AI feature is implemented using the DeepSeek API. The app sends a POST request with the correct authorization and JSON body, then processes the response to generate useful task suggestions for the user.
+### Database Structure
 
-### Activity Communication
+The app uses multiple tables to organize its local data:
 
-The app uses Android activity result patterns to send data between screens, allowing users to create or edit tasks and return the updated result to the main interface.
+| Table | Purpose |
+|---|---|
+| `tasks` | Stores main task information |
+| `prerequisites` | Stores task dependency relationships |
+| `RepeatType` | Stores valid repeat options |
+| `GroupType` | Stores task group/category options |
+| `PriorityType` | Stores task priority levels |
+| `streak` | Stores user streak progress |
 
-## Project Structure
+The database supports common task operations such as inserting, updating, deleting, and retrieving tasks. It also supports filtering today’s tasks and finding the oldest scheduled tasks.
 
-```text
-StayOnTrail/
-├── app/
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/
-│   │   │   │   └── net/limaru/stayontrail/
-│   │   │   ├── res/
-│   │   │   └── AndroidManifest.xml
-│   └── build.gradle
-├── gradle/
-├── build.gradle
-├── settings.gradle
-└── README.md
+Example task table structure:
+
+```sql
+CREATE TABLE IF NOT EXISTS tasks (
+    id INTEGER PRIMARY KEY NOT NULL,
+    title TEXT NOT NULL,
+    description TEXT,
+    date BIGINT,
+    duration BIGINT,
+    repeats TEXT,
+    until BIGINT,
+    grouppe TEXT,
+    priority TEXT
+);
