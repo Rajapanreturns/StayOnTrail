@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical" android:layout_margin="16dp"
+              xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            android:id="@+id/editTitle" tools:layout_editor_absoluteY="57dp" tools:layout_editor_absoluteX="48dp"
+            android:autofillHints="Title"
+            android:hint="@string/new_task_title"
+            android:minHeight="48dp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            android:id="@+id/editDescrption" tools:layout_editor_absoluteY="102dp" tools:layout_editor_absoluteX="48dp"
+            android:autofillHints="Description"
+            android:hint="@string/new_task_description"
+            android:minHeight="48dp"/>
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editDate"
+            android:text="@string/new_task_date"
+            android:minHeight="48dp"/>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/duration_label"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"/>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:id="@+id/editDurationHours"
+                android:hint="@string/duration_hours_hint"
+                android:gravity="center"
+                android:minHeight="48dp" android:autofillHints="1"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/duration_separator"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"/>
+        <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:id="@+id/editDurationMinutes"
+                android:hint="@string/duration_minutes_hint"
+                android:gravity="center"
+                android:minHeight="48dp" android:autofillHints="0"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp"
+    >
+        <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editRepeats"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown"
+                android:layout_weight="1"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/repeatUntil"
+                android:text="@string/repeat_until"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:layout_weight="1"
+                android:minHeight="48dp"/>
+    </LinearLayout>
+
+    <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editGroup"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown"
+    />
+    <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editPriority"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown"
+    />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/editPrerequisites" tools:layout_editor_absoluteY="102dp" tools:layout_editor_absoluteX="48dp"
+            android:autofillHints="Description"
+            android:hint="@string/new_task_prerequisites"
+            android:padding="@dimen/subtitle"
+            android:minHeight="48dp"/>
+</LinearLayout>

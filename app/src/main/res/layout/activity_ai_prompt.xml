@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#FFFFFF">
+
+    <EditText
+        android:id="@+id/ai_prompt_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Describe your task..."
+        android:inputType="textMultiLine"
+        android:minLines="4"
+        android:gravity="top"
+        android:minHeight="120dp"/>
+
+    <Button
+        android:id="@+id/ai_send_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send"/>
+
+
+    <TextView
+        android:id="@+id/ai_result_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/ai_done_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Done ↓"
+        android:visibility="gone"
+        android:backgroundTint="@color/greenTeaDark"/>
+
+</LinearLayout>

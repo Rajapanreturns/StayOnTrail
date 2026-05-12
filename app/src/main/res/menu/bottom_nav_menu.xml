@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/page.home"
+            android:title="@string/home"
+            android:icon="@drawable/baseline_home_24"
+    />
+    <item
+            android:id="@+id/page.task"
+            android:title="@string/task"
+            android:icon="@drawable/baseline_tasks_24"
+    />
+    <item
+            android:id="@+id/page.reward"
+            android:title="@string/reward"
+            android:icon="@drawable/baseline_fire_24"
+    />
+</menu>

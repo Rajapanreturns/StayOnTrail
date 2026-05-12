@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Defaults -->
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#FF808080</color>
+
+    <!-- Grays -->
+    <color name="black">#FF000000</color>
+    <color name="gray1">#ff1a1a1a</color>
+    <color name="gray2">#ff333333</color>
+    <color name="gray3">#ff4D4D4D</color>
+    <color name="gray4">#ff666666</color>
+    <color name="gray">#ff808080</color>
+    <color name="gray6">#ff999999</color>
+    <color name="gray7">#ffb3b3b3</color>
+    <color name="gray8">#ffcccccc</color>
+    <color name="gray9">#ffe6e6e6</color>
+    <color name="white">#fff2f2f2</color>
+
+    <!-- Green tea template -->
+    <color name="greenTeaDark">#FF7d9b3d</color>
+    <color name="greenTeaMid">#ffb6d554</color>
+    <color name="greenTeaLight">#ffd4e3a5</color>
+
+    <!-- Orange juice template -->
+    <color name="orangeJuiceDark">#ffee9621</color>
+    <color name="orangeJuiceMid">#fff6b554</color>
+    <color name="orangeJuiceLight">#fffcbc22</color>
+
+</resources>

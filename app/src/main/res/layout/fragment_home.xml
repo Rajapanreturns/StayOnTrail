@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".FragmentHome">
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/home_tasks"
+                android:orientation="vertical"
+                android:padding="16dp"
+        >
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tasks_for_today"
+                    android:textSize="@dimen/title"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="20dp"
+            />
+        </LinearLayout>
+    </ScrollView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/generate_task"
+            android:gravity="center"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/baseline_add_24"
+            android:textSize="@dimen/subtitle"
+            android:backgroundTint="@color/orangeJuiceDark"
+            android:layout_margin="15dp"
+            android:contentDescription="add task"
+    />
+
+</FrameLayout>

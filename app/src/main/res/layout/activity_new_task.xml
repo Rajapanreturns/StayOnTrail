@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+              android:orientation="vertical" android:layout_margin="16dp"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+>
+    <include layout="@layout/component_taskbox"/>
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/new_task_set"
+            android:contentDescription="@string/set_task"
+            android:text="@string/set_task"
+            android:backgroundTint="@color/greenTeaDark"
+    />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ai_prompt_btn"
+        android:text="Prompt Based Entry"
+        android:backgroundTint="@color/orangeJuiceDark"
+        />
+</LinearLayout>

@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Stay on Trail</string>
+    <!-- Bottom Navigation Bar Buttons -->
+    <string name="home">Home</string>
+    <string name="task">Tasks</string>
+    <string name="reward">Streak</string>
+
+    <string name="priority_highest">!! Highest</string>
+    <string name="priority_high">! High</string>
+    <string name="priority_normal">Normal</string>
+    <string name="priority_low">Low</string>
+    <string name="priority_lowest">Lowest</string>
+
+    <string name="start_task">Start</string>
+    <string name="new_task_title">Title</string>
+    <string name="new_task_description">Description</string>
+    <string name="new_task_date">Set date</string>
+    <string name="new_task_time">Time</string>
+    <string name="set_task">Set task</string>
+    <string name="list_view_toggle">List View</string>
+    <string name="delete_task">Delete Task</string>
+    <string name="edit_task">Edit</string>
+    <string name="list_view">List View</string>
+    <string name="duration_label">Duration</string>
+    <string name="duration_hours_hint">Hours</string>
+    <string name="duration_separator">:</string>
+    <string name="duration_minutes_hint">Minutes</string>
+    <string name="tasks_for_today">Tasks for Today</string>
+    <string name="repeat_until">… until</string>
+    <string name="new_task_prerequisites">Select prerequisites</string>
+
+</resources>
